@@ -45,6 +45,7 @@ const Body = () =>{
             <div className="my-5 p-5">
                 <input data-testid="search-input" type="text" className="focus:bg-green-200 p-2 m-2" placeholder="Search" value={searchText} onChange={(e) => {
                     setSearchText(e.target.value)
+                    {console.log(e.target.value)}
                 }}></input>
                 <button data-testid="search-btn" className="w-20 h-8 px-2 m-4 bg-purple-600 hover:bg-gray-500 text-white rounded-md" onClick={()=>{
                     const filteredData = filterData(searchText, allRestaurants);
@@ -64,8 +65,9 @@ const Body = () =>{
             <div className="flex flex-wrap sm:text-center justify-center" data-testid="res-list">
                  {filteredRestaurants.length === 0 ? (<h1>No restaurants match your search</h1>) : (filteredRestaurants.map((restaurant)=>{
                     return (
-                        <Link to={"/restaurant/"+restaurant?.data?.id} key={restaurant?.data?.id}>
-                            <RestaurantCard {...restaurant?.data} />
+                        <Link to={"/restaurant/"+restaurant?.info?.id} key={restaurant?.info?.id}>
+                            <RestaurantCard {...restaurant?.info} />
+                            {/* {console.log(restaurant)} */}
                         </Link>
                         
                     )

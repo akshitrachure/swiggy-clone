@@ -11,9 +11,13 @@ const useRestaurantDetails=()=>{
 
 
     async function getRestaurantDetails(){
+        //console.log("Fetchingg details");
         const data = await fetch(FETCH_RESTAURANT_DETAILS_URL);
+      //  console.log("Fetched details");
         const json =  await data.json();
-        setRestaurant(json?.data?.cards[2]?.data?.data?.cards);
+       // console.log(json);
+        setRestaurant(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+       // console.log(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     }
     return restaurant;
 }

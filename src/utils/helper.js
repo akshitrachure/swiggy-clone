@@ -1,8 +1,10 @@
 export function filterData(inputText, restaurants){
     const result = restaurants.filter((restaurant)=>(
-        
-            restaurant?.data?.name?.toLowerCase()?.includes(inputText?.toLowerCase())
+            
+            restaurant?.info?.name?.toLowerCase()?.includes(inputText?.toLowerCase())
+            
         
     ))
+    //console.log(restaurants[0].info.name);
     return result;
 }
