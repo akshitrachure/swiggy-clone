@@ -2,22 +2,24 @@ import { IMG_CDN_URL } from "../config";
 import { useContext } from "react";
 import userContext from "../utils/userContext";
 
+const RestaurantCard = ({ name, cuisines, cloudinaryImageId, sla }) => {
+  const { userDetails } = useContext(userContext);
 
-const RestaurantCard = ({name, cuisines, cloudinaryImageId, sla}) =>{
+  //console.log(name, cuisines, cloudinaryImageId);
 
-    const {userDetails}=useContext(userContext);
-
-    //console.log(name, cuisines, cloudinaryImageId);
-
-    return(
-        <div className="p-3 m-3 w-52 h-90 border border-solid to-black">
-            <img className="" alt="cardImage" src={IMG_CDN_URL + cloudinaryImageId}></img>
-            <h2 className="font-bold text-xl">{name}</h2>
-            <h3 className="text-md">{cuisines?.join(", ")}</h3>
-            <h4 className="text-sm">{sla.lastMileTravelString}</h4>
-            {/* <p>{userDetails.name} - {userDetails.email}</p> */}
-        </div>
-    )
-}
+  return (
+    <div className="p-3 m-3 w-52 h-90 border border-solid to-black">
+      <img
+        className=""
+        alt="cardImage"
+        src={IMG_CDN_URL + cloudinaryImageId}
+      ></img>
+      <h2 className="font-bold text-xl">{name}</h2>
+      <h3 className="text-md">{cuisines?.join(", ")}</h3>
+      <h4 className="text-sm">{sla.lastMileTravelString}</h4>
+      {/* <p>{userDetails.name} - {userDetails.email}</p> */}
+    </div>
+  );
+};
 
 export default RestaurantCard;

@@ -1,6 +1,7 @@
 {
   "name": "namaste-react",
   "version": "1.0.0",
+  "proxy": "https://www.swiggy.com/dapi/",
   "description": "Food Villa App",
   "scripts": {
     "test": "jest",
@@ -32,6 +33,7 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "babel-jest": "^29.4.2",
+    "http-proxy-middleware": "^2.0.6",
     "jest": "^29.4.2",
     "jest-environment-jsdom": "^29.4.2",
     "parcel": "^2.8.2",
@@ -40,6 +42,8 @@
     "tailwindcss": "^3.2.4"
   },
   "browserslist": [
-    "last 2 Chrome Versions"
+    "last 2 versions",
+    "> 1%",
+    "IE 11"
   ]
 }
