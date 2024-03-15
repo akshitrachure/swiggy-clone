@@ -5,7 +5,7 @@ import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import { filterData } from "../utils/helper";
 import useRestaurantDetails from "../utils/useRestaurantDetails";
-import { FETCH_RESTAURANT_DETAILS_URL, restaurantList } from "../config";
+// import { FETCH_RESTAURANT_DETAILS_URL } from "../config";
 import useOnline from "../utils/useOnline";
 import userContext from "../utils/userContext";
 
@@ -17,12 +17,18 @@ const Body = () => {
   const { userDetails, setUserData } = useContext(userContext);
 
   const restaurantsDetails = useRestaurantDetails();
+  console.log("Rest details");
   console.log(restaurantsDetails);
 
+  console.log("All rests");
+  console.log(allRestaurants);
+
   useEffect(() => {
+    console.log("Inside use effect");
+    console.log(restaurantsDetails);
     setAllRestaurants(restaurantsDetails);
     setFilteredRestaurants(restaurantsDetails);
-  }, []);
+  }, [restaurantsDetails]);
 
   const isOnline = useOnline();
 
@@ -34,8 +40,8 @@ const Body = () => {
   if (allRestaurants[0] === "Disclaimer") {
     return (
       <div className="mx-auto my-10 py-5 border ">
-        <h2 className="text-xl font-bold">{allRestaurants[0]}</h2>
-        <p className="py-4">{allRestaurants[1]}</p>
+        <h2 className="text-xl font-bold">{restaurantsDetails[0]}</h2>
+        <p className="py-4">{restaurantsDetails[1]}</p>
         <p>
           Please click on the below links to download the extension based on
           your browser
