@@ -12,6 +12,7 @@ const RestaurantCard = ({ name, cuisines, cloudinaryImageId, sla }) => {
       <img
         className=""
         alt="cardImage"
+        // src={cloudinaryImageId}
         src={IMG_CDN_URL + cloudinaryImageId}
       ></img>
       <h2 className="font-bold text-xl">{name}</h2>
